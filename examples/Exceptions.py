@@ -25,6 +25,8 @@ except NameError, e :
     assert len(e.args)  is     1
     assert e.args       is not ("abc",)
     assert e.args       ==     ("abc",)
+else :
+    assert False
 
 assert issubclass(NameError,     Exception)
 assert issubclass(Exception,     BaseException)
