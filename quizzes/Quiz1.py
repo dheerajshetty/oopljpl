@@ -5,41 +5,36 @@ OOPL JPL: Quiz #1
 """
 
 """ ----------------------------------------------------------------------
-1. What is the output of the following program?
+1. What does the following program do?
 """
 
-class A (BaseException) : # extends BaseException
-    pass
+print "1.", type(False)
+print "2.", type(bool)
+print "3.", type(NameError())
+print "4.", type(NameError)
+print "5.", type(type)
 
-class B (A) :             # extends A
-    pass
-
-def f (b) :
+def f (n) :
     print "f1",
-    if b :
-        raise A()
+    if (n % 3) == 1 :
+        raise NameError()
+    elif (n % 3) == 2 :
+        raise TypeError()
     print "f2",
 
-try :
-    print "m1",
-    f(False)
-    print "m2",
-except A :
-    print "m3",
-except B :
-    print "m4",
-finally :
-    print "m5",
-print "m6"
+def g (b) :
+    try :
+        print "g1",
+        f(b)
+        print "g2",
+    except NameError :
+        print "g3",
+    else :
+        print "g4",
+    finally :
+        print "g5",
+    print "g6"
 
-try :
-    print "m1",
-    f(True)
-    print "m2",
-except A :
-    print "m3",
-except B :
-    print "m4",
-finally :
-    print "m5",
-print "m6"
+g(0)
+g(1)
+g(2)
