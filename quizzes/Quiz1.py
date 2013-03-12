@@ -39,10 +39,10 @@ def f (n) :
         raise TypeError()
     print "f2",
 
-def g (b) :
+def g (n) :
     try :
         print "g1",
-        f(b)
+        f(n)
         print "g2",
     except NameError :
         print "g3",
