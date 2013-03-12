@@ -10,43 +10,43 @@ import sys
 print "Representations.py"
 
 i = 2
-assert i             == 2
-assert i             == 0b10
-assert i             == 02
-assert i             == 0o2
-assert i             == 0x2
-assert bin(i)        == "0b10"
-assert oct(i)        == "02"
-assert hex(i)        == "0x2"
-assert str(i)        == "2"
-assert str("%o" % i) == "2"
-assert str("%x" % i) == "2"
+assert i        == 2
+assert i        == 0b10
+assert i        == 02
+assert i        == 0o2
+assert i        == 0x2
+assert bin(i)   == "0b10"
+assert oct(i)   == "02"
+assert hex(i)   == "0x2"
+assert str(i)   == "2"
+assert "%o" % i == "2"
+assert "%x" % i == "2"
 
 i = 17
-assert i             == 17
-assert i             == 0b10001
-assert i             == 021
-assert i             == 0o21
-assert i             == 0x11
-assert bin(i)        == "0b10001"
-assert oct(i)        == "021"
-assert hex(i)        == "0x11"
-assert str(i)        == "17"
-assert str("%o" % i) == "21"
-assert str("%x" % i) == "11"
+assert i        == 17
+assert i        == 0b10001
+assert i        == 021
+assert i        == 0o21
+assert i        == 0x11
+assert bin(i)   == "0b10001"
+assert oct(i)   == "021"
+assert hex(i)   == "0x11"
+assert str(i)   == "17"
+assert "%o" % i == "21"
+assert "%x" % i == "11"
 
 i = -2
-assert i             == -2
-assert i             == -0b10
-assert i             == -02
-assert i             == -0o2
-assert i             == -0x2
-assert bin(i)        == "-0b10"
-assert oct(i)        == "-02"
-assert hex(i)        == "-0x2"
-assert str(i)        == "-2"
-assert str("%o" % i) == "-2"
-assert str("%x" % i) == "-2"
+assert i        == -2
+assert i        == -0b10
+assert i        == -02
+assert i        == -0o2
+assert i        == -0x2
+assert bin(i)   == "-0b10"
+assert oct(i)   == "-02"
+assert hex(i)   == "-0x2"
+assert str(i)   == "-2"
+assert "%o" % i == "-2"
+assert "%x" % i == "-2"
 
 i = sys.maxint
 assert i       == 9223372036854775807
