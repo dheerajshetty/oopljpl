@@ -42,7 +42,7 @@ except TypeError, e :
     assert e.args       == ("not all arguments converted during string formatting",)
 
 try :
-    s = "%7.2f, %7.3f" % (pi)
+    s = "%7.2f, %7.3f" % pi
     assert False
 except TypeError, e :
     assert type(e)      is TypeError
