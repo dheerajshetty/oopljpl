@@ -103,9 +103,9 @@ def stddev_7 (a, v = 0.0) :
 
 def test (f, s) :
     print f.__name__ + " (" + s + ")"
-    assert f([])        == 0
-    assert f([2])       == 0
-    assert f([2, 2, 2]) == 0
+    assert f([])             == 0
+    assert f([2])            == 0
+    assert f([2, 2, 2])      == 0
     assert str(f([2, 3, 4])) == "0.816496580928"
     a = 1000 * [1]
     b = time.clock()
