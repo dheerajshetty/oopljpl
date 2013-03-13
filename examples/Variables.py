@@ -44,12 +44,28 @@ b += [5]
 assert a == [2, 3, 4, 5]
 assert a is b
 
+a = [2, 3, 4]
+b = a
+assert a is b
+b += (5,)
+assert a == [2, 3, 4, 5]
+assert a is b
+
 a = (2, 3, 4)
 b = a
 assert a is b
 b += (5,)
 assert a == (2, 3, 4)
-assert b == (2, 3, 4, 5)
+
+a = (2, 3, 4)
+b = a
+assert a is b
+try :
+    b += [5]
+    assert False
+except TypeError, e :
+    assert len(e.args) == 1
+    assert e.args      == ('can only concatenate tuple (not "list") to tuple',)
 
 a = [2, 3, 4]
 b = a[:]

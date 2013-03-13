@@ -9,30 +9,32 @@ def map_1 (uf, a) :
     i = 0
     s = len(a)
     while i != s :
-        x += [uf(a[i])]
+        x.append(uf(a[i]))
         i += 1
     return x
 
 def map_2 (uf, a) :
     x = []
     p = iter(a)
-    while True :
-        try :
-            x += [uf(p.next())]
-        except StopIteration :
-            break
+    try :
+        while True :
+            x.append(uf(p.next()))
+    except StopIteration :
+        pass
     return x
 
 def map_3 (uf, a) :
     x = []
     for v in a :
-        x += [uf(v)]
+        x.append(uf(v))
     return x
 
 def map_4 (uf, a) :
     return [uf(v) for v in a]
 
 def test (f) :
+    assert f(lambda x : x ** 2, []) == []
+
     a = [2, 3, 4]
     assert f(lambda x : x ** 2, a) == [4,  9, 16]
     assert f(lambda x : x ** 3, a) == [8, 27, 64]

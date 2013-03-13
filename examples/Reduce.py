@@ -29,6 +29,8 @@ def reduce_3 (bf, a, v) :
     return v
 
 def test (f) :
+    assert f(operator.add, [], 0) == 0
+
     a = [2, 3, 4]
     assert f(operator.add, a, 0) ==  9
     assert f(operator.sub, a, 0) == -9
