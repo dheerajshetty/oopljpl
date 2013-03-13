@@ -11,7 +11,7 @@ import time
 
 def stddev_1 (a, v = 0.0) :
     """
-    O(1n) in space
+    O(1)  in space
     O(2n) in time
     """
     if not a :
@@ -26,7 +26,7 @@ def stddev_1 (a, v = 0.0) :
 
 def stddev_2 (a, v = 0.0) :
     """
-    O(1n) in space
+    O(1)  in space
     O(2n) in time
     """
     if not a :
@@ -39,7 +39,7 @@ def stddev_2 (a, v = 0.0) :
 
 def stddev_3 (a, v = 0.0) :
     """
-    O(2n) in space
+    O(1n) in space
     O(2n) in time
     """
     if not a :
@@ -51,7 +51,7 @@ def stddev_3 (a, v = 0.0) :
 
 def stddev_4 (a, v = 0.0) :
     """
-    O(1n) in space
+    O(1)  in space
     O(2n) in time
     """
     if not a :
@@ -64,7 +64,7 @@ def stddev_4 (a, v = 0.0) :
 def stddev_5 (a, v = 0.0) :
     """
     mean of the squares minus the square of the mean
-    O(1n) in space
+    O(1)  in space
     O(1n) in time
     """
     if not a :
@@ -80,7 +80,7 @@ def stddev_5 (a, v = 0.0) :
 def stddev_6 (a, v = 0.0) :
     """
     mean of the squares minus the square of the mean
-    O(2n) in space
+    O(1n) in space
     O(3n) in time
     """
     if not a :
@@ -92,8 +92,8 @@ def stddev_6 (a, v = 0.0) :
 def stddev_7 (a, v = 0.0) :
     """
     mean of the squares minus the square of the mean
-    O(2n) in space
-    O(3n) in time
+    O(1)  in space
+    O(2n) in time
     """
     if not a :
         return v
