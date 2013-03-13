@@ -143,4 +143,10 @@ i, j = j, i   # swap
 assert i == 3
 assert j == 2
 
+i = 2
+j = 3
+i, j = j, i = 4, 5
+assert i == 5
+assert j == 4
+
 print "Done."
