@@ -107,7 +107,7 @@ def test (f, s) :
     assert f([2])            == 0
     assert f([2, 2, 2])      == 0
     assert str(f([2, 3, 4])) == "0.816496580928"
-    a = 1000 * [1]
+    a = 1000 * [2]
     b = time.clock()
     assert f(a) == 0
     e = time.clock()
@@ -137,25 +137,25 @@ StandardDeviation.py
 [GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)]
 
 stddev_1 (while)
-0.476 milliseconds
+0.494 milliseconds
 
 stddev_2 (for)
-0.329 milliseconds
+0.381 milliseconds
 
 stddev_3 (sum map)
-0.554 milliseconds
+0.559 milliseconds
 
 stddev_4 (reduce)
-0.468 milliseconds
+0.465 milliseconds
 
 stddev_5 (math for)
-0.410 milliseconds
+0.411 milliseconds
 
 stddev_6 (math sum map)
-0.369 milliseconds
+0.373 milliseconds
 
 stddev_7 (math reduce)
-0.382 milliseconds
+0.387 milliseconds
 
 Done.
 """
