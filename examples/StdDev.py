@@ -16,8 +16,8 @@ def stddev_1 (a, v = 0.0) :
     """
     if not a :
         return v
-    m = sum(a, v) / len(a)
     s = len(a)
+    m = sum(a, v) / s
     i = 0
     while i != s :
         v += (a[i] - m) ** 2
@@ -31,21 +31,21 @@ def stddev_2 (a, v = 0.0) :
     """
     if not a :
         return v
-    m = sum(a, v) / len(a)
     s = len(a)
+    m = sum(a, v) / s
     for u in a :
         v += (u - m) ** 2
     return math.sqrt(v / s)
 
 def stddev_3 (a, v = 0.0) :
     """
-    O(1n) in space
-    O(2n) in time
+    O(2n) in space
+    O(4n) in time
     """
     if not a :
         return v
-    m = sum(a, v) / len(a)
     s = len(a)
+    m = sum(a, v) / s
     v = sum(map(lambda u, w : (u - w) ** 2, a, s * [m]), v)
     return math.sqrt(v / s)
 
@@ -56,8 +56,8 @@ def stddev_4 (a, v = 0.0) :
     """
     if not a :
         return v
-    m = sum(a, v) / len(a)
     s = len(a)
+    m = sum(a, v) / s
     v = reduce(lambda v, u : v + (u - m) ** 2, a, v)
     return math.sqrt(v / s)
 
@@ -69,13 +69,14 @@ def stddev_5 (a, v = 0.0) :
     """
     if not a :
         return v
-    s = 0
+    s = len(a)
     w = v
     for u in a :
-        s += 1
         v += u
         w += u ** 2
-    return math.sqrt((w / s) - (v / s) ** 2)
+    ms = w / s
+    sm = (v / s) ** 2
+    return math.sqrt(ms - sm)
 
 def stddev_6 (a, v = 0.0) :
     """
@@ -85,8 +86,9 @@ def stddev_6 (a, v = 0.0) :
     """
     if not a :
         return v
-    ms = sum(map(lambda u : u ** 2, a), v) / len(a)
-    sm = (sum(a, v) / len(a)) ** 2
+    s = len(a)
+    ms = sum(map(lambda u : u ** 2, a), v) / s
+    sm = (sum(a, v) / s) ** 2
     return math.sqrt(ms - sm)
 
 def stddev_7 (a, v = 0.0) :
@@ -97,8 +99,9 @@ def stddev_7 (a, v = 0.0) :
     """
     if not a :
         return v
-    ms = reduce(lambda v, u : v + u ** 2, a, v) / len(a)
-    sm = (sum(a, v) / len(a)) ** 2
+    s = len(a)
+    ms = reduce(lambda v, u : v + u ** 2, a, v) / s
+    sm = (sum(a, v) / s) ** 2
     return math.sqrt(ms - sm)
 
 def test (f, s) :
