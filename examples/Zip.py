@@ -33,6 +33,11 @@ def zip_3 (*a) :
         return []
     return zip_aux_3(*[iter(v) for v in a])
 
+def zip_4 (*a) :
+    if not a :
+        return []
+    return map(lambda *a : a, *a)
+
 def test (f) :
     assert f()                       == []
     assert f([])                     == []
@@ -43,9 +48,10 @@ def test (f) :
 
 print "Zip.py"
 
-test(zip)
 test(zip_1)
 test(zip_2)
 test(zip_3)
+test(zip_4)
+test(zip)
 
 print "Done."
