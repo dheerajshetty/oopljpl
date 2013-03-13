@@ -8,13 +8,12 @@ import operator
 import sys
 import time
 
-def sum_1 (a) :
+def sum_1 (a, v) :
     if not a :
-        return 0
-    return a[0] + sum_1(a[1:])
+        return v
+    return a[0] + sum_1(a[1:], v)
 
-def sum_2 (a) :
-    v = 0
+def sum_2 (a, v) :
     i = 0
     s = len(a)
     while i != s :
@@ -22,14 +21,12 @@ def sum_2 (a) :
         i += 1
     return v
 
-def sum_3 (a) :
-    v = 0
+def sum_3 (a, v) :
     for i in range(len(a)) :
         v += a[i]
     return v
 
-def sum_4 (a) :
-    v = 0
+def sum_4 (a, v) :
     p = iter(a)
     while True :
         try :
@@ -38,29 +35,28 @@ def sum_4 (a) :
             break
     return v
 
-def sum_5 (a) :
-    v = 0
+def sum_5 (a, v) :
     for w in a :
         v += w
     return v
 
-def sum_6 (a) :
-    return reduce(lambda x, y : x + y, a, 0)
+def sum_6 (a, v) :
+    return reduce(operator.add, a, v)
 
-def sum_7 (a) :
-    return reduce(operator.add, a, 0)
+def sum_7 (a, v) :
+    return reduce(lambda x, y : x + y, a, v)
 
 def test_1 (f, c) :
-    assert f(c())          == 0
-    assert f(c([2]))       == 2
-    assert f(c([2, 3]))    == 5
-    assert f(c([2, 3, 4])) == 9
+    assert f(c(),          0) == 0
+    assert f(c([2]),       0) == 2
+    assert f(c([2, 3]),    0) == 5
+    assert f(c([2, 3, 4]), 0) == 9
 
 def test_2 (f, s) :
     print f.__name__ + " (" + s + ")"
     a = 500 * [1]
     b = time.clock()
-    assert f(a) == 500
+    assert f(a, 0) == 500
     e = time.clock()
     print "%5.3f" % ((e - b) * 1000), "milliseconds"
     print
@@ -108,8 +104,8 @@ test_2(sum_2, "while")
 test_2(sum_3, "for in range")
 test_2(sum_4, "while iter")
 test_2(sum_5, "for in")
-test_2(sum_6, "reduce lambda")
-test_2(sum_7, "reduce operator")
+test_2(sum_6, "reduce operator")
+test_2(sum_7, "reduce lambda")
 test_2(sum,   "")
 
 print "Done."
@@ -135,11 +131,11 @@ sum_4 (while iter)
 sum_5 (for in)
 0.046 milliseconds
 
-sum_6 (reduce lambda)
-0.119 milliseconds
-
-sum_7 (reduce operator)
+sum_6 (reduce operator)
 0.058 milliseconds
+
+sum_7 (reduce lambda)
+0.119 milliseconds
 
 sum ()
 0.009 milliseconds
