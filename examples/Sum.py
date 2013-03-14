@@ -13,12 +13,12 @@ def sum_1 (a, v = 0) :
         return v
     return a[0] + sum_1(a[1:], v)
 
-def sum_1x (a, v = 0) :
+def sum_2 (a, v = 0) :
     if not a :
         return v
-    return a[0] + sum_1(a[1:], v)
+    return sum_2(a[1:], v + a[0])
 
-def sum_2 (a, v = 0) :
+def sum_3 (a, v = 0) :
     i = 0
     s = len(a)
     while i != s :
@@ -26,12 +26,12 @@ def sum_2 (a, v = 0) :
         i += 1
     return v
 
-def sum_3 (a, v = 0) :
+def sum_4 (a, v = 0) :
     for i in range(len(a)) :
         v += a[i]
     return v
 
-def sum_4 (a, v = 0) :
+def sum_5 (a, v = 0) :
     p = iter(a)
     try :
         while True :
@@ -40,21 +40,21 @@ def sum_4 (a, v = 0) :
         pass
     return v
 
-def sum_5 (a, v = 0) :
+def sum_6 (a, v = 0) :
     for w in a :
         v += w
     return v
 
-def sum_6 (a, v = 0) :
+def sum_7 (a, v = 0) :
     return reduce(operator.add, a, v)
 
-def sum_7 (a, v = 0) :
+def sum_8 (a, v = 0) :
     return reduce(lambda x, y : x + y, a, v)
 
 def plus (x, y) :
     return x + y
 
-def sum_8 (a, v = 0) :
+def sum_9 (a, v = 0) :
     return reduce(plus, a, v)
 
 def test_1 (f, c) :
@@ -89,7 +89,7 @@ test_1(sum_3, tuple)
 
 test_1(sum_4, list)
 test_1(sum_4, tuple)
-test_1(sum_4, set)
+#test_1(sum_4, set) # TypeError: 'set' object does not support indexing
 
 test_1(sum_5, list)
 test_1(sum_5, tuple)
@@ -103,6 +103,10 @@ test_1(sum_7, list)
 test_1(sum_7, tuple)
 test_1(sum_7, set)
 
+test_1(sum_8, list)
+test_1(sum_8, tuple)
+test_1(sum_8, set)
+
 test_1(sum,   list )
 test_1(sum,   tuple)
 test_1(sum,   set)
@@ -111,13 +115,14 @@ print sys.version
 print
 
 test_2(sum_1, "recursion")
-test_2(sum_2, "while")
-test_2(sum_3, "for in range")
-test_2(sum_4, "while iter")
-test_2(sum_5, "for in")
-test_2(sum_6, "reduce operator")
-test_2(sum_7, "reduce lambda")
-test_2(sum_8, "reduce plus")
+test_2(sum_2, "tail recursion")
+test_2(sum_3, "while")
+test_2(sum_4, "for in range")
+test_2(sum_5, "while iter")
+test_2(sum_6, "for in")
+test_2(sum_7, "reduce operator")
+test_2(sum_8, "reduce lambda")
+test_2(sum_9, "reduce plus")
 test_2(sum,   "")
 
 print "Done."
@@ -129,31 +134,34 @@ Sum.py
 [GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)]
 
 sum_1 (recursion)
-4.298 milliseconds
+4.331 milliseconds
 
-sum_2 (while)
-0.118 milliseconds
+sum_2 (tail recursion)
+2.965 milliseconds
 
-sum_3 (for in range)
-0.076 milliseconds
+sum_3 (while)
+0.119 milliseconds
 
-sum_4 (while iter)
-0.169 milliseconds
+sum_4 (for in range)
+0.075 milliseconds
 
-sum_5 (for in)
+sum_5 (while iter)
+0.165 milliseconds
+
+sum_6 (for in)
 0.047 milliseconds
 
-sum_6 (reduce operator)
+sum_7 (reduce operator)
 0.059 milliseconds
 
-sum_7 (reduce lambda)
-0.120 milliseconds
-
-sum_8 (reduce plus)
+sum_8 (reduce lambda)
 0.117 milliseconds
 
+sum_9 (reduce plus)
+0.118 milliseconds
+
 sum ()
-0.010 milliseconds
+0.009 milliseconds
 
 Done.
 """
