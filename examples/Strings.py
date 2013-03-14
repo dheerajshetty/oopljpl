@@ -49,16 +49,16 @@ assert len("""a
 b""") == 3
 
 assert "abc"      is     "abc"
-assert str("abc") is     str("abc")
-assert "ab" + "c" is     "ab" + "c"
+assert str("abc") is     str("abc") is "abc"
+assert "ab" + "c" is     "ab" + "c" is "abc"
 assert str(True)  is     str(True)
 assert str(9)     is     str(9)
-assert str(10)    ==     str(10)
 assert str(10)    is not str(10)
-assert str(2L)    ==     str(2L)
+assert str(10)    ==     str(10)
 assert str(2L)    is not str(2L)
-assert str(2.34)  ==     str(2.34)
+assert str(2L)    ==     str(2L)
 assert str(2.34)  is not str(2.34)
+assert str(2.34)  ==     str(2.34)
 
 assert "bcd"     in "abcde"
 assert "xyz" not in "abcde"
@@ -104,6 +104,10 @@ s = "abCbACb"
 t = s.replace("Cb", "Xy")
 assert s == "abCbACb"
 assert t == "abXyAXy"
+
+s = "abCbACb"
+t = s.replace("Cx", "Xy")
+assert s is t
 
 s = "abCbACb"
 t = s.replace("Cb", "Xy", 1)
