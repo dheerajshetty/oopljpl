@@ -17,7 +17,7 @@ def zip_1 (*a) :
 def zip_2 (*a) :
     if not a :
         return []
-    return map(lambda *a : a, *a)
+    return map(lambda *x : x, *a)
 
 def test (f) :
     assert f()                       == []
