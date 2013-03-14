@@ -7,33 +7,14 @@
 def zip_1 (*a) :
     if not a :
         return []
-    s = len(a[0])
-    i = xrange(s)
+    s = len(iter(a).next())
     x = s * [()]
     for r in a :
-        for j in i :
-            x[j] += (r[j],)
+        for i in range(s) :
+            x[i] += (r[i],)
     return x
 
 def zip_2 (*a) :
-    if not a :
-        return []
-    b = [iter(v) for v in a]
-    return [tuple([p.next() for p in b]) for w in iter(a).next()]
-
-def zip_aux_3 (*b) :
-    try :
-        w = tuple([p.next() for p in b])
-    except StopIteration :
-        return []
-    return [w] + zip_aux_3(*b)
-
-def zip_3 (*a) :
-    if not a :
-        return []
-    return zip_aux_3(*[iter(v) for v in a])
-
-def zip_4 (*a) :
     if not a :
         return []
     return map(lambda *a : a, *a)
@@ -50,8 +31,6 @@ print "Zip.py"
 
 test(zip_1)
 test(zip_2)
-test(zip_3)
-test(zip_4)
 test(zip)
 
 print "Done."

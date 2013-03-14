@@ -166,17 +166,9 @@ assert z == [6, 7, 7, 8, 8, 9]
 
 x = [2, 3, 4]
 y = [4, 5]
-assert map(lambda v : map(lambda w : v + w, y), x) == [[6, 7], [7, 8], [8, 9]]
-z = reduce(operator.add, map(lambda v : map(lambda w : v + w, y), x), [])
-assert x == [2, 3, 4]
-assert y == [4, 5]
-assert z == [2+4, 2+5, 3+4, 3+5, 4+4, 4+5]
-assert z == [6, 7, 7, 8, 8, 9]
-
-x = [2, 3, 4]
-y = [4, 5]
-assert map(lambda v : map(lambda w : v + w, y), x) == [[6, 7], [7, 8], [8, 9]]
-z = sum(map(lambda v : map(lambda w : v + w, y), x), [])
+t = map(lambda v : map(lambda w : v + w, y), x)
+assert t == [[6, 7], [7, 8], [8, 9]]
+z = sum(t, [])
 assert x == [2, 3, 4]
 assert y == [4, 5]
 assert z == [2+4, 2+5, 3+4, 3+5, 4+4, 4+5]

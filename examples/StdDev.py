@@ -81,19 +81,6 @@ def stddev_5 (a, v = 0.0) :
 def stddev_6 (a, v = 0.0) :
     """
     mean of the squares minus the square of the mean
-    O(1n) in space
-    O(3n) in time
-    """
-    if not a :
-        return v
-    s = len(a)
-    ms = sum(map(lambda u : u ** 2, a), v) / s
-    sm = (sum(a, v) / s) ** 2
-    return math.sqrt(ms - sm)
-
-def stddev_7 (a, v = 0.0) :
-    """
-    mean of the squares minus the square of the mean
     O(1)  in space
     O(2n) in time
     """
@@ -101,6 +88,19 @@ def stddev_7 (a, v = 0.0) :
         return v
     s = len(a)
     ms = reduce(lambda v, u : v + u ** 2, a, v) / s
+    sm = (sum(a, v) / s) ** 2
+    return math.sqrt(ms - sm)
+
+def stddev_7 (a, v = 0.0) :
+    """
+    mean of the squares minus the square of the mean
+    O(1n) in space
+    O(3n) in time
+    """
+    if not a :
+        return v
+    s = len(a)
+    ms = sum([u ** 2 for u in a], v) / s
     sm = (sum(a, v) / s) ** 2
     return math.sqrt(ms - sm)
 
@@ -128,8 +128,8 @@ test(stddev_2, "for")
 test(stddev_3, "sum map")
 test(stddev_4, "reduce")
 test(stddev_5, "math for")
-test(stddev_6, "math sum map")
-test(stddev_7, "math reduce")
+test(stddev_6, "math reduce")
+test(stddev_7, "math sum list comprehension")
 
 print "Done."
 
@@ -140,25 +140,25 @@ StandardDeviation.py
 [GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)]
 
 stddev_1 (while)
-0.494 milliseconds
+0.459 milliseconds
 
 stddev_2 (for)
-0.381 milliseconds
+0.331 milliseconds
 
 stddev_3 (sum map)
-0.559 milliseconds
+0.551 milliseconds
 
 stddev_4 (reduce)
-0.465 milliseconds
+0.473 milliseconds
 
 stddev_5 (math for)
-0.411 milliseconds
+0.359 milliseconds
 
-stddev_6 (math sum map)
-0.373 milliseconds
+stddev_6 (math reduce)
+0.395 milliseconds
 
-stddev_7 (math reduce)
-0.387 milliseconds
+stddev_7 (math sum list comprehension)
+0.209 milliseconds
 
 Done.
 """

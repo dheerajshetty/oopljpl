@@ -45,17 +45,17 @@ def sum_6 (a, v = 0) :
         v += w
     return v
 
+def plus (x, y) :
+    return x + y
+
 def sum_7 (a, v = 0) :
-    return reduce(operator.add, a, v)
+    return reduce(plus, a, v)
 
 def sum_8 (a, v = 0) :
     return reduce(lambda x, y : x + y, a, v)
 
-def plus (x, y) :
-    return x + y
-
 def sum_9 (a, v = 0) :
-    return reduce(plus, a, v)
+    return reduce(operator.add, a, v)
 
 def test_1 (f, c) :
     assert f(c())          == 0
@@ -120,9 +120,9 @@ test_2(sum_3, "while")
 test_2(sum_4, "for in range")
 test_2(sum_5, "while iter")
 test_2(sum_6, "for in")
-test_2(sum_7, "reduce operator")
+test_2(sum_7, "reduce plus")
 test_2(sum_8, "reduce lambda")
-test_2(sum_9, "reduce plus")
+test_2(sum_9, "reduce operator")
 test_2(sum,   "")
 
 print "Done."
@@ -134,31 +134,31 @@ Sum.py
 [GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)]
 
 sum_1 (recursion)
-4.331 milliseconds
+4.346 milliseconds
 
 sum_2 (tail recursion)
-2.965 milliseconds
+3.018 milliseconds
 
 sum_3 (while)
-0.119 milliseconds
+0.122 milliseconds
 
 sum_4 (for in range)
-0.075 milliseconds
+0.090 milliseconds
 
 sum_5 (while iter)
-0.165 milliseconds
+0.171 milliseconds
 
 sum_6 (for in)
 0.047 milliseconds
 
-sum_7 (reduce operator)
-0.059 milliseconds
+sum_7 (reduce plus)
+0.119 milliseconds
 
 sum_8 (reduce lambda)
 0.117 milliseconds
 
-sum_9 (reduce plus)
-0.118 milliseconds
+sum_9 (reduce operator)
+0.059 milliseconds
 
 sum ()
 0.009 milliseconds
