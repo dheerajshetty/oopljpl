@@ -11,24 +11,19 @@ class A (object) :
         return "A.f()"
 
 class B (object) :
-    def f (self) :
-        return "B.f()"
-
-class C (object) :
     def __init__ (self, v) :
         self.v = v
 
-def test (a, b) :
+def test (a) :
     assert a().f() == "A.f()"
-    assert b().f() == "B.f()"
 
-test(A,              B)
-test(type(A()),      type(B()))
-test(A().__class__,  B().__class__)
-test(globals()["A"], globals()["B"])
+test(A)
+test(type(A()))
+test(A().__class__)
+test(globals()["A"])
 
 try :
-    globals()["C"]()
+    globals()["B"]()
 except TypeError, e :
     assert type(e)      is     TypeError
     assert type(e.args) is     tuple
@@ -37,12 +32,12 @@ except TypeError, e :
     assert e.args       ==     ('__init__() takes exactly 2 arguments (1 given)',)
 
 try :
-    globals()["D"]
+    globals()["C"]
 except KeyError, e :
     assert type(e)      is     KeyError
     assert type(e.args) is     tuple
     assert len(e.args)  is     1
-    assert e.args       is not ('D',)
-    assert e.args       ==     ('D',)
+    assert e.args       is not ('C',)
+    assert e.args       ==     ('C',)
 
 print "Done."
