@@ -9,26 +9,26 @@ print "Dicts.py"
 d = {2 : "ghi", 3.45 : 3, "abc" : 6.78, 2 : "def"}
 assert type(d) ==     dict
 assert len(d)  ==     3
-assert d       ==     {2 : "def", 3.45 : 3, "abc" : 6.78}
 assert d       is not {2 : "def", 3.45 : 3, "abc" : 6.78}
+assert d       ==     {2 : "def", 3.45 : 3, "abc" : 6.78}
 assert d       ==     {2 : "def", "abc" : 6.78, 3.45 : 3}
 
 d = dict(((2, "ghi"), (3.45, 3), ("abc", 6.78), (2, "def")))
 assert type(d) ==     dict
 assert len(d)  ==     3
-assert d       ==     {2 : "def", 3.45 : 3, "abc" : 6.78}
 assert d       is not {2 : "def", 3.45 : 3, "abc" : 6.78}
+assert d       ==     {2 : "def", 3.45 : 3, "abc" : 6.78}
 assert d       ==     {2 : "def", "abc" : 6.78, 3.45 : 3}
 
 d = dict([[2, "ghi"], [3.45, 3], ["abc", 6.78], [2, "def"]])
 assert type(d) ==     dict
 assert len(d)  ==     3
-assert d       ==     {2 : "def", 3.45 : 3, "abc" : 6.78}
 assert d       is not {2 : "def", 3.45 : 3, "abc" : 6.78}
+assert d       ==     {2 : "def", 3.45 : 3, "abc" : 6.78}
 assert d       ==     {2 : "def", "abc" : 6.78, 3.45 : 3}
 
-{} ==     {}
 {} is not {}
+{} ==     {}
 
 d = {}
 try :
@@ -69,8 +69,8 @@ assert d.get(5) == None
 
 d = {2 : "abc", 3 : "def", 4 : "ghi"}
 e = d.copy()
-assert d ==     e
 assert d is not e
+assert d ==     e
 
 t = ("a", "b", "c")
 u = (2, 3, 4)

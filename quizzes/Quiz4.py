@@ -16,6 +16,8 @@ import operator
 def reduce_1 (bf, a, *z) :
     if (not a) and (not z) :
         raise TypeError("reduce() of empty sequence with no initial value")
+    if len(z) > 1 :
+        raise TypeError("reduce expected at most 3 arguments, got 4")
     p = iter(a)
     if not z :
         v = p.next()
@@ -31,6 +33,8 @@ def reduce_1 (bf, a, *z) :
 def reduce_2 (bf, a, *z) :
     if (not a) and (not z) :
         raise TypeError("reduce() of empty sequence with no initial value")
+    if len(z) > 1 :
+        raise TypeError("reduce expected at most 3 arguments, got 4")
     if not z :
         a = iter(a)
         v = a.next()
@@ -47,6 +51,13 @@ def test_reduce (f) :
     except TypeError, e :
         assert len(e.args) == 1
         assert e.args      == ('reduce() of empty sequence with no initial value',)
+
+    try :
+        assert f(operator.add, [], 0, 0) ==  0
+        assert False
+    except TypeError, e :
+        assert len(e.args) == 1
+        assert e.args      == ('reduce expected at most 3 arguments, got 4',)
 
     assert f(operator.add, [2, 3, 4]) ==  9 # 2 + 3 + 4
     assert f(operator.sub, [2, 3, 4]) == -5 # 2 - 3 - 4

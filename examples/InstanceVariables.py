@@ -12,6 +12,7 @@ class A (object) :
         self.__v2   = self.v1     + 1
         self._A__v3 = self.__v2   + 1
         self._A__v3 = self._A__v2 + 1
+        self.__v3   = self.__v2   + 1
 
 print "InstanceVariables.py"
 

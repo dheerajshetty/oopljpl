@@ -12,6 +12,7 @@ class A (object) :
     __v2   =     v1 + 1
     _A__v3 =   __v2 + 1
     _A__v3 = _A__v2 + 1
+    __v3   =   __v2 + 1
 
 print "ClassVariables.py"
 

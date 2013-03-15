@@ -9,16 +9,16 @@ print "Sets.py"
 s = set([2, 3.45, "abc", 2])
 assert type(s) is     set
 assert len(s)  ==     3
-assert s       ==     set([2, 3.45, 'abc'])
 assert s       is not set([2, 3.45, 'abc'])
+assert s       ==     set([2, 3.45, 'abc'])
 assert s       ==     set((2, 'abc', 3.45))
 assert s       ==     frozenset((2, 3.45, 'abc'))
 
 s = frozenset([2, 3.45, "abc", 2])
 assert type(s)      is     frozenset
 assert len(s)       ==     3
-assert s            ==     frozenset([2, 3.45, 'abc'])
 assert s            is not frozenset([2, 3.45, 'abc'])
+assert s            ==     frozenset([2, 3.45, 'abc'])
 assert s            ==     frozenset((2, 'abc', 3.45))
 assert s            ==     set((2, 3.45, 'abc'))
 
@@ -30,14 +30,14 @@ s = frozenset({2 : "ghi", 3.45 : 3, "abc" : 6.78, 2 : "def"})
 assert type(s) is frozenset
 assert s       == frozenset([2, 3.45, "abc"])
 
-set()       ==     set()
 set()       is not set()
+set()       ==     set()
 frozenset() is     frozenset()
 
 s = set([2, 3.45, "abc", 2])
 t = set(s)
-assert s ==     t
 assert s is not t
+assert s ==     t
 
 s = frozenset([2, 3.45, "abc", 2])
 t = frozenset(s)
@@ -45,8 +45,8 @@ assert s is t
 
 s = set([2, 3.45, "abc"])
 t = s.copy()
-assert s ==     t
 assert s is not t
+assert s ==     t
 
 s = frozenset([2, 3.45, "abc"])
 t = s.copy()
