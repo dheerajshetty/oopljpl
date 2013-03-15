@@ -10,6 +10,23 @@ OOPL JPL: Quiz #5
 
 from Queue import PriorityQueue
 
+class MyPriorityQueue (object) :
+    def __init__ (self) :
+        self.a = []
+
+    def empty (self) :
+        return self.qsize() == 0
+
+    def get (self) :
+        v = min(self.a)
+        self.a.remove(v)
+        return v
+
+    def put (self, v) :
+        self.a.append(v)
+
+    def qsize (self) :
+        return len(self.a)
 
 def test_priority_queue (c) :
     x = c()
